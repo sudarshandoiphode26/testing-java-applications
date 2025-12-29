@@ -1,0 +1,29 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '4.0.1'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'dev.darsh'
+version = '0.0.1-SNAPSHOT'
+description = 'This project will help you understand how to write the test cases for some part of your code. Junit helps you write the test cases that verifies whether your code behavior is correct or not. '
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
